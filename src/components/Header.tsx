@@ -155,13 +155,24 @@ export default function Header() {
         <div className="lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
           <nav className="flex flex-col px-4 py-3 gap-1">
             {navCenter.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href, link.scroll)}
-                className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
-              >
-                {link.label}
-              </button>
+              link.scroll ? (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href, true)}
+                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2 text-left"
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <div className="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2 flex flex-col gap-1">
               <Link href="/ao-vivo" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-sm text-red-600 dark:text-red-400 py-2">
