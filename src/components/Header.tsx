@@ -3,12 +3,13 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/hooks/useAuth';
 
 const navCenter = [
-  { href: '/#inicio', label: 'Início', scroll: true },
+  { href: '/#inicio', label: 'Inicio', scroll: true },
   { href: '/#sobre', label: 'Sobre', scroll: true },
   { href: '/#agenda', label: 'Agenda', scroll: true },
-  { href: '/voce-na-zele', label: 'Você na Zele', scroll: false },
+  { href: '/voce-na-zele', label: 'Voce na Zele', scroll: false },
   { href: '/batismo', label: 'Batismo', scroll: false },
   { href: '/contato', label: 'Contato', scroll: false },
 ];
@@ -18,6 +19,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { user, perfil, logout } = useAuth();
 
   useEffect(() => {
     const saved = localStorage.getItem('darkMode');
@@ -91,7 +93,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Direita — Ações */}
+        {/* Direita — Acoes */}
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           <Link
             href="/ao-vivo"
@@ -109,15 +111,29 @@ export default function Header() {
             {darkMode ? '☀️' : '🌙'}
           </button>
 
-          <Link
-            href="/login"
-            className="text-sm font-medium px-4 py-2 rounded-md bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-90 transition-opacity"
-          >
-            Membros
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-gray-600 dark:text-gray-300">
+                {perfil?.nome?.split(' ')[0] ?? 'Membro'}
+              </span>
+              <button
+                onClick={logout}
+                className="text-sm font-medium px-4 py-2 rounded-md border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
+              >
+                Sair
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="text-sm font-medium px-4 py-2 rounded-md bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-90 transition-opacity"
+            >
+              Membros
+            </Link>
+          )}
         </div>
 
-        {/* Mobile — botão menu */}
+        {/* Mobile — botao menu */}
         <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={toggleDark}
@@ -152,9 +168,18 @@ export default function Header() {
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 Ao Vivo
               </Link>
-              <Link href="/login" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 dark:text-gray-300 py-2">
-                Membros
-              </Link>
+              {user ? (
+                <button
+                  onClick={logout}
+                  className="text-sm text-gray-600 dark:text-gray-300 py-2 text-left"
+                >
+                  Sair ({perfil?.nome?.split(' ')[0] ?? 'Membro'})
+                </button>
+              ) : (
+                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 dark:text-gray-300 py-2">
+                  Membros
+                </Link>
+              )}
             </div>
           </nav>
         </div>
