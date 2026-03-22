@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "home": "Início",
+    "cultos": "Cultos",
+    "agenda": "Agenda",
+    "ministerios": "Ministérios",
+    "pastor": "Pastor",
+    "galeria": "Galeria",
+    "aoVivo": "Ao Vivo",
+    "dizimos": "Dízimos",
+    "contato": "Contato",
+    "login": "Entrar"
+  },
+  "home": {
+    "hero": "Bem-vindo à Zele Church",
+    "heroSub": "Uma igreja que transforma vidas em Itaquera, São Paulo",
+    "missao": "Nossa Missão",
+    "missaoText": "Amar a Deus e ao próximo, fazendo discípulos em todas as nações.",
+    "visao": "Nossa Visão",
+    "visaoText": "Ser uma igreja relevante, que impacta a comunidade de Itaquera e além."
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "language": "Idioma"
+  }
+}

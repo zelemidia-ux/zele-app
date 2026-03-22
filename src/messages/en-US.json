@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "home": "Home",
+    "cultos": "Services",
+    "agenda": "Events",
+    "ministerios": "Ministries",
+    "pastor": "Pastor",
+    "galeria": "Gallery",
+    "aoVivo": "Live",
+    "dizimos": "Giving",
+    "contato": "Contact",
+    "login": "Sign In"
+  },
+  "home": {
+    "hero": "Welcome to Zele Church",
+    "heroSub": "A church that transforms lives in Itaquera, São Paulo",
+    "missao": "Our Mission",
+    "missaoText": "To love God and our neighbor, making disciples of all nations.",
+    "visao": "Our Vision",
+    "visaoText": "To be a relevant church that impacts the Itaquera community and beyond."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "language": "Language"
+  }
+}
