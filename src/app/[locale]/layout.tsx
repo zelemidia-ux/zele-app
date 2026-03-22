@@ -4,6 +4,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import { Toaster } from "sonner";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <Toaster richColors position="bottom-right" />
         </SmoothScroll>
       </body>
     </html>
