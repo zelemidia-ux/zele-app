@@ -36,7 +36,7 @@ export default function Home() {
             <a href="#agenda" className="px-6 py-3 rounded-md bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium hover:opacity-90 transition-opacity">
               Ver Agenda
             </a>
-            <a href="https://waze.com/ul?ll=-23.5505,-46.4468" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-md border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+            <a href="https://www.waze.com/pt-BR/live-map/directions/br/sp/zele-church?to=place.ChIJkxeqHlZnzpQRGivBWDvGnfE" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-md border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
               Como Chegar
             </a>
           </div>
